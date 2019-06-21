@@ -6,10 +6,8 @@ from guestbook.models import Guestbook
 
 
 def list(request):
-    list = Guestbook.objects.all()
-    for l in list:
-        print(l)
-    data={'list':list}
+    guestlist = Guestbook.objects.all()
+    data={'guestlist':guestlist}
     return render(request,'guestbook/list.html',data)
 
 def add(request):

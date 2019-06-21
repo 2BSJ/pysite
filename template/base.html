@@ -10,11 +10,14 @@
 		<div id="header">
 			<h1>MySite</h1>
 			<ul>
-				<li><a href="/user/loginform">로그인</a><li>
-				<li><a href="/user/joinform">회원가입</a><li>
-				<li><a href="/">회원정보수정(미구현-홈으로가기)</a><li>
-				<li><a href="/user/logout">로그아웃</a><li>
-				<li>님 안녕하세요 ^^;</li>
+				{% if request.session.authuser is None %}
+				<li><a href="/user/loginform">로그인</a></li>
+				<li><a href="/user/joinform">회원가입</a></li>
+				{% else %}
+				<li><a href="/user/updateform">회원정보수정(미구현-홈으로가기)</a></li>
+				<li><a href="/user/logout">로그아웃</a></li>
+				<li>{{request.session.authuser.name}}님 안녕하세요 ^^;</li>
+				{% endif %}
 			</ul>
 		</div>
 		<div id="wrapper">
@@ -24,7 +27,7 @@
 		</div>
 		<div id="navigation">
 			<ul>
-				<li><a href="/">안대혁</a></li>
+				<li><a href="/">홈</a></li>
 				<li><a href="/guestbook/list">방명록</a></li>
 				<li><a href="/guestbook/list">게시판(미구현)</a></li>
 			</ul>
