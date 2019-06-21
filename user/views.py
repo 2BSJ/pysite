@@ -72,7 +72,7 @@ def checkemail(request):
         user = User.objects.get(email=request.GET['email'])
     except Exception as e:
         user = None
-    email = request.GET['email']
+
     result = {
         'result' : 'success',
         'data' : "not exist" if user is None else "exist"

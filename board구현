@@ -1,0 +1,26 @@
+1. limit 처리
+
+    # limit 자체가 select all 가져와서 잘라내는거기 때문에
+    # python에서 슬라이스로 떄와도 성능상 차이가 없슴
+    start = (page-1)*pagesize
+    Board.object.all().order_by('-regdate')[start:start+pagesize]
+
+2. insert
+    board = Board()
+    board.title = ',,,'
+    ...
+    ...
+    board.user_id = -----
+
+    board.save()
+
+3. increase h
+
+   board = Board......
+   board.hit =  board.hit +1
+   board.save()
+
+4. TotalCount
+    # objects.all 로 가져오면 성능상 부하가 너무 심하기때문에 count로 가져옴
+    # count는 인덱스를 타고 가져오기떄문에 훨씬 빠름.
+    Board.objects.count()

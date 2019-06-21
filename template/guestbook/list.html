@@ -23,7 +23,7 @@
 					</table>
 				</form>
 				<ul>
-					{# --{{ guestbook_list | length }} : {{ guestbook_list.count | add:1 | sub:2  }}-- #}
+					{# --{{ guestlist | length }} : {{ guestlist.count | add:1 | sub:2  }}-- #}
 					{% for guestbook in guestlist %}
 					<li>
 						{% if forloop.first %}
@@ -32,14 +32,14 @@
 									{% comment 'forloop variable' %}
 									<td>[{{ forloop.revcounter }}]</td>
 									{% endcomment %}
-									<td>[{{ guestbook_list.count | sub:forloop.counter | add:1 }}]</td>
+									<td>[{{ guestlist.count | sub:forloop.counter | add:1 }}]</td>
 									<td>{{ guestbook.name }} </td>
 									<td>{{ guestbook.regdate | date:'Y-m-d H:i:s' }}</td>
 									<td><a href="/guestbook/deleteform/{{ guestbook.id }}">삭제</a></td>
 								</tr>
 								<tr>
 									<td colspan=4>
-										{{ guestbook.message | linebreaksbr }}
+										{{ guestbook.content | linebreaksbr }}
 									</td>
 								</tr>
 							</table>
@@ -53,7 +53,7 @@
 								</tr>
 								<tr>
 									<td colspan=4>
-										{{ guestbook.message | linebreaksbr }}
+										{{ guestbook.content | linebreaksbr }}
 									</td>
 								</tr>
 							</table>
