@@ -7,8 +7,15 @@
 			<div id="board">
 				<form class="board-form" method="post" action="/board/write">
 					{% csrf_token %}
-					<input type = "hidden" name = "a" value="write">
 					<table class="tbl-ex">
+						{% if board != None%}
+						<input type = "hidden" name ="id" value="{{board.id}}">
+						<input type = "hidden" name ="groupno" value="{{board.groupno}}">
+						<input type = "hidden" name ="orderno" value="{{board.orderno}}">
+						<input type = "hidden" name ="depth" value="{{board.depth}}">
+						{% else %}
+						<input type = "hidden" name ="new" value="True">
+						{% endif %}
 						<tr>
 							<th colspan="2">글쓰기</th>
 						</tr>
@@ -19,7 +26,8 @@
 						<tr>
 							<td class="label">내용</td>
 							<td>
-								<textarea id="content" name="content"></textarea>
+								<textarea id="content" name="content">
+								</textarea>
 							</td>
 						</tr>
 					</table>

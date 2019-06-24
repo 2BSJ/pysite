@@ -51,6 +51,7 @@ urlpatterns = [
     path('board/modify', board_views.modify),
     path('board/goreply', board_views.goreply),
     path('board/reply', board_views.reply),
+    path('board/delete', board_views.delete),
 
 
     #Admin
