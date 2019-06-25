@@ -52,6 +52,7 @@ urlpatterns = [
     path('board/goreply', board_views.goreply),
     path('board/reply', board_views.reply),
     path('board/delete', board_views.delete),
+    path('board/search', board_views.search),
 
 
     #Admin

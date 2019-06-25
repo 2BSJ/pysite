@@ -16,7 +16,7 @@ def add(request):
     return HttpResponseRedirect('/guestbook/list')
 
 def list(request):
-    guestlist = Guestbook.objects.all()
+    guestlist = Guestbook.objects.all().order_by('-regdate')
     data={'guestlist':guestlist}
     return render(request,'guestbook/list.html',data)
 

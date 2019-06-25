@@ -7,15 +7,15 @@
 
 {% block content %}
 			<div id="board">
-				<form id="search_form" action="" method="post">
-					<input type="text" id="kwd" name="kwd" value="">
+				<form id="search_form" action="/board/search" method="get">
+					<input type="text" id="kwd" name="search" value="">
 					<input type="submit" value="찾기">
 				</form>
 				<table class="tbl-ex">
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
-						<th >글쓴이</th>
+						<th style="padding:0px;">글쓴이</th>
 						<th>조회수</th>
 						<th>작성일</th>
 						<th></th>
@@ -30,9 +30,9 @@
 						{% endif %}
 							<a href="/board/view?id={{board.id}}">{{board.title}}</a>
 						</td>
-						<td>{{board.user.name}}</td>
+						<td style="padding:0px;">{{board.user.name}}</td>
 						<td>{{board.hit}}</td>
-						<td>{{board.regdate | date:'Y-m-d H:i:s' }}</td>
+						<td>{{board.regdate | date:'Y-m-d H:i' }}</td>
 						<td>
 							{% if request.session.authuser.id == board.user_id %}
 							<a href="/board/delete?id={{board.id}}" class="del">삭제</a>
@@ -61,6 +61,7 @@
 <script>
 var listCount = {{listcount}}
 var currentPage = {{page}}
+var search = {{search}}
 setPage(listCount, currentPage);
 </script>
 {% endblock %}
