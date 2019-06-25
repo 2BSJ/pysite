@@ -3,6 +3,7 @@
 
 {% block csslink %}
 <link href="/assets/css/board.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -56,12 +57,12 @@
 					{% endif %}
 				</div>				
 			</div>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
 <script src="/assets/js/paging.js"></script>
 <script>
 var listCount = {{listcount}}
 var currentPage = {{page}}
-var search = {{search}}
-setPage(listCount, currentPage);
+var search = "{{search}}"
+setPage(listCount, currentPage, search);
 </script>
 {% endblock %}
