@@ -7,12 +7,6 @@ var setPage = function(listCount, currentPage, search){
 		var displayPage = parseInt((currentPage + 4 ) / 5 ) * 5;
 		var search = search;
 
-		console.log("listCount", listCount);
-		console.log("pageCount", pageCount);
-		console.log("currentPage", currentPage);
-		console.log("endPage", endPage);
-		console.log("displayPage", displayPage);
-		console.log("search",search);
 		var pager =$('#pager');
 
         //찾기일때 로직
